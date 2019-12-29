@@ -10,9 +10,8 @@
       <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
       <mat-datepicker
         #dp
-        (yearSelected)="chosenYearHandler($event)"
-        (monthSelected)="chosenMonthHandler($event)"
-        (daySelected)="chosenDayHandler($event, dp)"
+        (yearSelected)="chosenYearHandler($event, form.get('date'))"
+        (monthSelected)="chosenMonthHandler($event, form.get('date'), dp)"
         panelClass="example-month-picker"
       >
       </mat-datepicker>

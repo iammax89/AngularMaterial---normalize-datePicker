@@ -1,7 +1,12 @@
 import { Component, OnInit } from "@angular/core";
 import * as _moment from "moment";
 import { default as _rollupMoment, Moment } from "moment";
-import { FormGroup, FormControl, Validators } from "@angular/forms";
+import {
+  FormGroup,
+  FormControl,
+  Validators,
+  AbstractControl
+} from "@angular/forms";
 import { MatDatepicker } from "@angular/material/datepicker";
 
 const moment = _rollupMoment || _moment;
@@ -21,22 +26,22 @@ export class AppComponent implements OnInit {
     console.log(this.form.value);
   }
 
-  chosenYearHandler(normalizedYear: Moment) {
-    const ctrlValue = this.form.controls.date.value;
+  chosenYearHandler(normalizedYear: Moment, ctrl: AbstractControl) {
+    const ctrlValue = ctrl.value;
     ctrlValue.year(normalizedYear.year());
-    this.form.controls.date.setValue(ctrlValue);
+    ctrl.setValue(ctrlValue);
   }
 
-  chosenMonthHandler(normalizedMonth: Moment) {
-    const ctrlValue = this.form.controls.date.value;
+  chosenMonthHandler(
+    normalizedMonth: Moment,
+    ctrl: AbstractControl,
+    datepicker: MatDatepicker<Moment>
+  ) {
+    const ctrlValue = ctrl.value;
     ctrlValue.month(normalizedMonth.month());
-    this.form.controls.date.setValue(ctrlValue);
-  }
-  chosenDayHandler(normalizedDay: Moment, datepicker: MatDatepicker<Moment>) {
-    const ctrlValue = this.form.controls.date.value;
-    ctrlValue.day(normalizedDay.day());
-    this.form.controls.date.setValue(ctrlValue);
+    ctrl.setValue(ctrlValue);
     datepicker.close();
   }
+
   submit() {}
 }
