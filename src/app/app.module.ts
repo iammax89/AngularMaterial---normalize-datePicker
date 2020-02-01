@@ -16,7 +16,7 @@ import { MatDatepickerModule } from "@angular/material/datepicker";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatButtonModule } from "@angular/material/button";
 import { MatInputModule } from "@angular/material/input";
-
+import { MatIconModule } from "@angular/material/icon";
 export const MY_FORMATS = {
   parse: {
     dateInput: "DD/MM/YYYY"
@@ -38,7 +38,8 @@ export const MY_FORMATS = {
     MatDatepickerModule,
     MatFormFieldModule,
     MatButtonModule,
-    MatInputModule
+    MatInputModule,
+    MatIconModule
   ],
   providers: [
     {

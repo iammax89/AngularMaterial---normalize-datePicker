@@ -1,21 +1,54 @@
 <div class="form">
-  <form [formGroup]="form" (ngSubmit)="submit()">
+  <form [formGroup]="form">
     <mat-form-field>
       <input
         matInput
-        [matDatepicker]="dp"
+        [matDatepicker]="fromPicker"
+        [matDatepickerFilter]="myFilter"
         placeholder="Month and Year"
-        formControlName="date"
+        formControlName="from"
       />
-      <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+      <mat-datepicker-toggle matSuffix [for]="fromPicker">
+        <mat-icon matDatepickerToggleIcon
+          >keyboard_arrow_down</mat-icon
+        ></mat-datepicker-toggle
+      >
       <mat-datepicker
-        #dp
-        (yearSelected)="chosenYearHandler($event, form.get('date'))"
-        (monthSelected)="chosenMonthHandler($event, form.get('date'), dp)"
+        #fromPicker
+        (yearSelected)="chosenYearHandler($event, form.get('from'))"
+        (monthSelected)="chosenMonthHandler($event, form.get('from'), fromPicker)"
         panelClass="example-month-picker"
       >
       </mat-datepicker>
     </mat-form-field>
+
+    <mat-form-field>
+      <input
+        matInput
+        [matDatepickerFilter]="myFilter"
+        [matDatepicker]="toPicker"
+        placeholder="Month and Year"
+        formControlName="to"
+        [min]="min"
+      />
+      <mat-datepicker-toggle matSuffix [for]="toPicker">
+        <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+      </mat-datepicker-toggle>
+      <mat-datepicker
+        #toPicker
+        (yearSelected)="chosenYearHandler($event, form.get('to'))"
+        (monthSelected)="chosenMonthHandler($event, form.get('to'), toPicker)"
+        panelClass="example-month-picker"
+      >
+      </mat-datepicker>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <input
+        formControlName="amount"
+        matInput
+        placeholder="Amount"
+        type="number"
+      />
+    </mat-form-field>
   </form>
-  <button mat-button type="submit">Send</button>
 </div>
