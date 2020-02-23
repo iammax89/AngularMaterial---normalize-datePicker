@@ -17,6 +17,7 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatButtonModule } from "@angular/material/button";
 import { MatInputModule } from "@angular/material/input";
 import { MatIconModule } from "@angular/material/icon";
+import { DatepickerComponent } from "./components/datepicker/datepicker.component";
 export const MY_FORMATS = {
   parse: {
     dateInput: "DD/MM/YYYY"
@@ -30,7 +31,7 @@ export const MY_FORMATS = {
 };
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, DatepickerComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

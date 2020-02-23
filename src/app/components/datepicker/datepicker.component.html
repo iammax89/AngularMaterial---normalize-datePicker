@@ -1,0 +1,55 @@
+<div class="form">
+  <form [formGroup]="form">
+    <mat-form-field>
+      <input
+        matInput
+        [matDatepicker]="fromPicker"
+        [matDatepickerFilter]="myFilter"
+        placeholder="Month and Year"
+        formControlName="from"
+        [min]="fromMin"
+      />
+      <mat-datepicker-toggle matSuffix [for]="fromPicker">
+        <mat-icon matDatepickerToggleIcon
+          >keyboard_arrow_down</mat-icon
+        ></mat-datepicker-toggle
+      >
+      <mat-datepicker
+        #fromPicker
+        (yearSelected)="chosenYearHandler($event, form.get('from'))"
+        (monthSelected)="chosenMonthHandler($event, form.get('from'), fromPicker)"
+        panelClass="example-month-picker"
+      >
+      </mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input
+        matInput
+        [matDatepickerFilter]="myFilter"
+        [matDatepicker]="toPicker"
+        placeholder="Month and Year"
+        formControlName="to"
+        [min]="toMin"
+      />
+      <mat-datepicker-toggle matSuffix [for]="toPicker">
+        <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+      </mat-datepicker-toggle>
+      <mat-datepicker
+        #toPicker
+        (yearSelected)="chosenYearHandler($event, form.get('to'))"
+        (monthSelected)="chosenMonthHandler($event, form.get('to'), toPicker)"
+        panelClass="example-month-picker"
+      >
+      </mat-datepicker>
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        formControlName="amount"
+        matInput
+        placeholder="Amount"
+        type="number"
+      />
+    </mat-form-field>
+  </form>
+</div>
