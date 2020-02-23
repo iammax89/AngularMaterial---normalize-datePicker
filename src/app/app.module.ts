@@ -16,8 +16,12 @@ import { MatDatepickerModule } from "@angular/material/datepicker";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatButtonModule } from "@angular/material/button";
 import { MatInputModule } from "@angular/material/input";
+import { MatSelectModule } from "@angular/material/select";
 import { MatIconModule } from "@angular/material/icon";
+import { MatCardModule } from "@angular/material/card";
+import { MatSortModule } from "@angular/material/sort";
 import { DatepickerComponent } from "./components/datepicker/datepicker.component";
+import { SortListComponent } from "./components/sort-list/sort-list.component";
 export const MY_FORMATS = {
   parse: {
     dateInput: "DD/MM/YYYY"
@@ -31,7 +35,7 @@ export const MY_FORMATS = {
 };
 
 @NgModule({
-  declarations: [AppComponent, DatepickerComponent],
+  declarations: [AppComponent, DatepickerComponent, SortListComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -40,7 +44,10 @@ export const MY_FORMATS = {
     MatFormFieldModule,
     MatButtonModule,
     MatInputModule,
-    MatIconModule
+    MatIconModule,
+    MatSelectModule,
+    MatCardModule,
+    MatSortModule
   ],
   providers: [
     {

@@ -1,0 +1,27 @@
+<div class="sort">
+  <mat-form-field>
+    <mat-label>Select an option</mat-label>
+    <mat-select>
+      <mat-option value="name" (click)="onSortData('name')">Name</mat-option>
+      <mat-option value="calories" (click)="onSortData('calories')"
+        >Calories</mat-option
+      >
+      <mat-option value="fat" (click)="onSortData('fat')">Fat (g)</mat-option>
+      <mat-option value="carbs" (click)="onSortData('carbs')"
+        >Carbs (g)</mat-option
+      >
+      <mat-option value="protein" (click)="onSortData('protein')"
+        >Protein (g)</mat-option
+      >
+    </mat-select>
+  </mat-form-field>
+  <div *ngFor="let dessert of sortedData">
+    <mat-card>
+      <span><strong>Dessert (100g):</strong>{{dessert.name}}</span>
+      <span><strong>Calories:</strong>{{dessert.calories}}</span>
+      <span><strong>Fat (g):</strong>{{dessert.fat}}</span>
+      <span><strong> Carbs (g):</strong>{{dessert.carbs}}</span>
+      <span><strong>Protein (g) :</strong>{{dessert.protein}}</span>
+    </mat-card>
+  </div>
+</div>
