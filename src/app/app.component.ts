@@ -19,7 +19,8 @@ const moment = _rollupMoment || _moment;
 })
 export class AppComponent implements OnInit {
   form: FormGroup;
-  min: Moment;
+  fromMin = moment().startOf("year");
+  toMin: Moment;
   holidays: Moment[] = [
     moment("2020-03-08"),
     moment("2020-03-09"),
@@ -45,10 +46,10 @@ export class AppComponent implements OnInit {
       amount: new FormControl("")
     });
     this.updateAmount();
-    this.min = this.form.get("from").value;
+    this.toMin = this.form.get("from").value;
 
     this.form.controls.from.valueChanges.subscribe(value => {
-      this.min = value;
+      this.toMin = value;
       this.updateAmount();
     });
 

@@ -7,6 +7,7 @@
         [matDatepickerFilter]="myFilter"
         placeholder="Month and Year"
         formControlName="from"
+        [min]="fromMin"
       />
       <mat-datepicker-toggle matSuffix [for]="fromPicker">
         <mat-icon matDatepickerToggleIcon
@@ -29,7 +30,7 @@
         [matDatepicker]="toPicker"
         placeholder="Month and Year"
         formControlName="to"
-        [min]="min"
+        [min]="toMin"
       />
       <mat-datepicker-toggle matSuffix [for]="toPicker">
         <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
